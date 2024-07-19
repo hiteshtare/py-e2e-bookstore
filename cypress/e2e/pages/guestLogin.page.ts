@@ -14,6 +14,9 @@ export class GuestLoginPages {
   btnAddToCart = '.elementor-add-to-cart > .variations_form > .single_variation_wrap > .woocommerce-variation-add-to-cart > .single_add_to_cart_button';
   linkCart = 'cart';
 
+  //Checkout
+ btnCheckout = '.checkout-button';
+ linkCheckout = 'checkout';
 
   validateNewlinkAndStatusCode200(selector: string) {
     captureSreenshot();

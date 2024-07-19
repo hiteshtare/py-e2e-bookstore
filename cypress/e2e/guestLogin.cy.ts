@@ -16,26 +16,42 @@ describe("Guest Login", () => {
     );
   });
 
-  it("should open AOY product Page", () => {
+  it("should open AOY Product page", () => {
     cy.get(guestLoginPages.btnAOYproduct).click();
 
     cy.url().should("include", guestLoginPages.linkAOYproduct);
   });
 
-  it("AOY product Page should have Add to Cart button", () => {
+  it("AOY Product page should have Add to Cart button", () => {
     cy.get(guestLoginPages.btnAOYproduct).click();
 
     checkIfElementExist(guestLoginPages.btnAddToCart);
   });
 
 
-  it.only("should open Cart Page", () => {
+  it("should open Cart page", () => {
     cy.get(guestLoginPages.btnAOYproduct).click();
-
-    checkIfElementExist(guestLoginPages.btnAddToCart);
 
     cy.get(guestLoginPages.btnAddToCart).click();
 
     cy.url().should("include", guestLoginPages.linkCart);
+  });
+
+  it("Cart page should have Proceed to Checkout button", () => {
+    cy.get(guestLoginPages.btnAOYproduct).click();
+
+    cy.get(guestLoginPages.btnAddToCart).click();
+
+    checkIfElementExist(guestLoginPages.btnCheckout);
+  });
+
+  it("should open Checkout Page", () => {
+    cy.get(guestLoginPages.btnAOYproduct).click();
+
+    cy.get(guestLoginPages.btnAddToCart).click();
+
+    cy.get(guestLoginPages.btnCheckout).click();
+
+    cy.url().should("include", guestLoginPages.linkCheckout);
   });
 });
