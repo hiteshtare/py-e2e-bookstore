@@ -1,0 +1,33 @@
+{
+  "name": "py-e2e-bookstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "allure:report": "allure generate allure-results --name 'Bookstore' --clean -o allure-reports",
+    "allure:clear": "rm -r allure-results/** && cp -r allure-reports/history/ allure-results && rm -r allure-reports/**",
+    "pretest": "npm run allure:clear",
+    "test": "npm run cypress-test || npm run posttest",
+    "cypress-test": "cypress run --env environmentName=staging,allure=true",
+    "posttest": "npm run allure:report",
+    "pretest:release": "npm run allure:clear",
+    "test:release": "npm run test:release:parallel || npm run posttest:release",
+    "test:release:parallel": "cypress-parallel -s cypress-test:release -t 4 -d 'cypress/e2e/**/*.cy.ts' -o 'cypressParallel=true'",
+    "cypress-test:release": "cypress run --env environmentName=release,allure=true",
+    "posttest:release": "npm run allure:report"
+  },
+  "keywords": [],
+  "author": "Hitesh Tare",
+  "license": "ISC",
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-cypress": "^3.0.0-beta.1",
+    "cypress": "^12.14.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-parallel": "^0.14.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.29.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://test.yssofindia.org/",
+  "env": {
+    "greeting": "Alright PY! lets start Cypress on Test site"
+  }
+}
