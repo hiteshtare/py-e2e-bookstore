@@ -86,7 +86,9 @@ describe("Guest Login", () => {
     cy.get("#billing_address_1").type(Cypress.env("BILLING_ADDR1"));
     cy.get("#billing_city").type(Cypress.env("BILLING_CITY"));
     //Set Dropdown value on Form
-    cy.get("#billing_state").select(Cypress.env("BILLING_STATE"), { force: true });
+    cy.get("#billing_state").select(Cypress.env("BILLING_STATE"), {
+      force: true,
+    });
     cy.get("#billing_postcode").type(Cypress.env("BILLING_POSTCODE"));
 
     cy.wait(1000).get(guestLoginPages.btnPayNow).click();
