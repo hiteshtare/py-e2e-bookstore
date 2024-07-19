@@ -10,6 +10,11 @@ export class GuestLoginPages {
   btnAOYproduct = '.jet-listing-dynamic-post-177392 > .elementor > .elementor-section > .elementor-container > .elementor-column > .elementor-widget-wrap > .elementor-element-49c9592 > .elementor-widget-container > .elementor-heading-title > a';
   linkAOYproduct = 'product/autobiography-of-a-yogi';
   
+  //Cart
+  btnAddToCart = '.elementor-add-to-cart > .variations_form > .single_variation_wrap > .woocommerce-variation-add-to-cart > .single_add_to_cart_button';
+  linkCart = 'cart';
+
+
   validateNewlinkAndStatusCode200(selector: string) {
     captureSreenshot();
 

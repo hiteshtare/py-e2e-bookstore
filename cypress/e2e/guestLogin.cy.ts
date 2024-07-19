@@ -1,5 +1,5 @@
 // Import common util
-import { checkStatus200ForLink } from "./util/common.util";
+import { checkIfElementExist, checkStatus200ForLink } from "./util/common.util";
 
 import { GuestLoginPages } from "./pages/guestLogin.page";
 
@@ -16,9 +16,26 @@ describe("Guest Login", () => {
     );
   });
 
-  it("should have open AOY product Page", () => {
+  it("should open AOY product Page", () => {
     cy.get(guestLoginPages.btnAOYproduct).click();
 
     cy.url().should("include", guestLoginPages.linkAOYproduct);
+  });
+
+  it("AOY product Page should have Add to Cart button", () => {
+    cy.get(guestLoginPages.btnAOYproduct).click();
+
+    checkIfElementExist(guestLoginPages.btnAddToCart);
+  });
+
+
+  it.only("should open Cart Page", () => {
+    cy.get(guestLoginPages.btnAOYproduct).click();
+
+    checkIfElementExist(guestLoginPages.btnAddToCart);
+
+    cy.get(guestLoginPages.btnAddToCart).click();
+
+    cy.url().should("include", guestLoginPages.linkCart);
   });
 });
