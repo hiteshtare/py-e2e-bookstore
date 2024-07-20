@@ -98,11 +98,11 @@ describe("Guest Login", () => {
   });
 
   it.only("Checkout page should proceed further if form is valid", () => {
-    cy.get(guestLoginPages.btnAOYproduct).click();
+    cy.get(guestLoginPages.btnAOYproduct).should('be.visible').click();
 
-    cy.get(guestLoginPages.btnAddToCart).click();
+    cy.get(guestLoginPages.btnAddToCart).should('be.visible').click();
 
-    cy.get(guestLoginPages.btnCheckout).click();
+    cy.get(guestLoginPages.btnCheckout).should('be.visible').click();
 
     cy.get("#billing_email").type(Cypress.env("BILLING_EMAIL"));
     cy.get("#billing_phone").type(Cypress.env("BILLING_PHONE"));
@@ -116,10 +116,10 @@ describe("Guest Login", () => {
     });
     cy.get("#billing_postcode").type(Cypress.env("BILLING_POSTCODE"));
 
-    cy.wait(1000).get(guestLoginPages.btnPayNow).click();
+    //Click on Pay Now button from Form
+    cy.get(guestLoginPages.btnPayNow).click();
 
     //iFrame
-    cy.wait(8000);
     cy.frameLoaded(guestLoginPages.iframe_selector);
 
     //RazorPay - Click on Netbanking button
@@ -129,6 +129,9 @@ describe("Guest Login", () => {
     cy.iframe().find(guestLoginPages.iframe_btnICICIBank).should('be.visible').click();
 
     //RazorPay - Click on Pay Now button
-    cy.iframe().find(guestLoginPages.iframe_btnPayNow).should('be.visible').click();
-  });
+    cy.iframe().find(guestLoginPages.iframe_btnPayNow).should('be.visible').wait(1000).click();
+
+    //RazorPay - Click on green Success button on Demo bank page
+    // cy.get(".success").should('be.visible');
+    });
 });
