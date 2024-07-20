@@ -120,9 +120,15 @@ describe("Guest Login", () => {
 
     //iFrame
     cy.wait(8000);
-    cy.frameLoaded('.razorpay-checkout-frame');
+    cy.frameLoaded(guestLoginPages.iframe_selector);
 
     //RazorPay - Click on Netbanking button
-    cy.iframe().find('#redesign-v15-cta').should('be.visible').click();
+    cy.iframe().find(guestLoginPages.iframe_btnNetbanking).should('be.visible').click();
+
+    //RazorPay - Click on ICICI from the banks  
+    cy.iframe().find(guestLoginPages.iframe_btnICICIBank).should('be.visible').click();
+
+    //RazorPay - Click on Pay Now button
+    cy.iframe().find(guestLoginPages.iframe_btnPayNow).should('be.visible').click();
   });
 });

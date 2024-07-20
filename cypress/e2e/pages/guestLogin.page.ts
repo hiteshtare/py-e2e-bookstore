@@ -23,7 +23,12 @@ export class GuestLoginPages {
   btnPayNow = "#place_order";
 
   //iFrame
+  iframe_selector = '.razorpay-checkout-frame';
+
   iframe_btnNetbanking = 'button[method="netbanking"]';
+  iframe_btnICICIBank = '#bank-item-ICIC';
+  iframe_btnPayNow = '#redesign-v15-cta';
+  //iFrame
 
   validateNewlinkAndStatusCode200(selector: string) {
     captureSreenshot();
