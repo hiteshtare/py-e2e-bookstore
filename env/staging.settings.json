@@ -2,7 +2,9 @@
   "baseUrl": "https://test.yssofindia.org/",
   "env": {
     "greeting": "Alright PY! lets start Cypress on Test site",
-    "BILLING_EMAIL": "reppintaylors@gmail.com",
+    "LOGIN_EMAIL": "hiteshtare@gmail.com",
+    "LOGIN_PASSWORD": "2wsx@WSX22",
+    "BILLING_EMAIL": "reppintaylors@gmail.com", 
     "BILLING_PHONE": "9833887224",
     "BILLING_FIRST_NAME": "TEST",
     "BILLING_LAST_NAME": "PY",
