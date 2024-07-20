@@ -1,5 +1,8 @@
 // Import common util
-import { checkIfElementExist, checkStatus200ForLink } from "./util/common.util";
+import {
+  checkIfElementExist,
+  checkStatus200ForLink,
+} from "./util/common.util";
 
 import { GuestLoginPages } from "./pages/guestLogin.page";
 
@@ -7,7 +10,7 @@ const guestLoginPages = new GuestLoginPages();
 
 describe("Guest Login", () => {
   beforeEach(() => {
-    cy.visit("spiritual/bookstore");
+    cy.visit("bookstore");
   });
 
   it("should have open Bookstore Page then select AOY and give 200 OK status", () => {
@@ -72,6 +75,28 @@ describe("Guest Login", () => {
     cy.wait(1000).get(guestLoginPages.btnPayNow).click();
   });
 
+  it("Checkout page should proceed further if form is valid", () => {
+    cy.get(guestLoginPages.btnAOYproduct).click();
+
+    cy.get(guestLoginPages.btnAddToCart).click();
+
+    cy.get(guestLoginPages.btnCheckout).click();
+
+    cy.get("#billing_email").type(Cypress.env("BILLING_EMAIL"));
+    cy.get("#billing_phone").type(Cypress.env("BILLING_PHONE"));
+    cy.get("#billing_first_name").type(Cypress.env("BILLING_FIRST_NAME"));
+    cy.get("#billing_last_name").type(Cypress.env("BILLING_LAST_NAME"));
+    cy.get("#billing_address_1").type(Cypress.env("BILLING_ADDR1"));
+    cy.get("#billing_city").type(Cypress.env("BILLING_CITY"));
+    //Set Dropdown value on Form
+    cy.get("#billing_state").select(Cypress.env("BILLING_STATE"), {
+      force: true,
+    });
+    cy.get("#billing_postcode").type(Cypress.env("BILLING_POSTCODE"));
+
+    cy.wait(1000).get(guestLoginPages.btnPayNow).click();
+  });
+
   it.only("Checkout page should proceed further if form is valid", () => {
     cy.get(guestLoginPages.btnAOYproduct).click();
 
@@ -92,5 +117,12 @@ describe("Guest Login", () => {
     cy.get("#billing_postcode").type(Cypress.env("BILLING_POSTCODE"));
 
     cy.wait(1000).get(guestLoginPages.btnPayNow).click();
+
+    //iFrame
+    cy.wait(8000);
+    cy.frameLoaded('.razorpay-checkout-frame');
+
+    //RazorPay - Click on Netbanking button
+    cy.iframe().find('#redesign-v15-cta').should('be.visible').click();
   });
 });

@@ -22,6 +22,9 @@ export class GuestLoginPages {
   //PayNow
   btnPayNow = "#place_order";
 
+  //iFrame
+  iframe_btnNetbanking = 'button[method="netbanking"]';
+
   validateNewlinkAndStatusCode200(selector: string) {
     captureSreenshot();
 
