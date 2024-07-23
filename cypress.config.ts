@@ -46,8 +46,8 @@ export default defineConfig({
       on("before:run", async (details) => {
         await beforeRunHook(details);
       });
-      on("after:run", (results) => {
-        const data = `Environment=${environmentName}\nBaseURL=${settings.baseUrl}\n`;
+      on("after:run", (results: any) => {
+        const data = `Environment=${environmentName}\nBaseURL=${settings.baseUrl}\nBrowser=${results['browserName']} v${results['browserVersion']}\n`
         fs.writeFile("allure-results/environment.properties", data, (err) => {
           if (err) throw err;
         });
