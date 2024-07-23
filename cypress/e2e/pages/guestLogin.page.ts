@@ -25,7 +25,9 @@ export class GuestLoginPages {
   //iFrame
   iframe_selector = '.razorpay-checkout-frame';
 
+  // For Live scenario - iframe_btnNetbanking = '#nav-sidebar > div:nth-child(1) > label:nth-child(4)';
   iframe_btnNetbanking = 'button[method="netbanking"]';
+  // For Live scenario - iframe_btnICICIBank = '#main-stack-container > div > div > div > div > div.flex.h-full.flex-1.flex-col.overflow-auto.bg-surface > div > div > form:nth-child(4) > div > label:nth-child(3) > div';
   iframe_btnICICIBank = '#bank-item-ICIC';
   iframe_btnPayNow = '#redesign-v15-cta';
   //iFrame
