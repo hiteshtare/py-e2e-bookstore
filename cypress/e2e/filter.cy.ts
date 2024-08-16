@@ -15,29 +15,29 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Filter menu should be visible by default", () => {
+      it("Books >> Filter menu should be visible by default", () => {
         checkIfElementIsVisible_Contains(filterPages.divFilterMenuText);
       });
     });
 
     describe("dropdown: Categories", () => {
-      it("dropdown: Categories - should have default value as ", () => {
+      it("Books >>  dropdown: Categories - should have default value as ", () => {
         cy.get(filterPages.bookDropdownCategories)
           .select(0)
           .should("have.value", "");
       });
 
-      it("dropdown: Authors - should have default value as ", () => {
+      it("Books >> dropdown: Authors - should have default value as ", () => {
         cy.get(filterPages.bookDropdownAuthors).select(0).should("have.value", "");
       });
 
-      it("dropdown: Languages - should have default value as ", () => {
+      it("Books >> dropdown: Languages - should have default value as ", () => {
         cy.get(filterPages.bookDropdownLanguages)
           .select(0)
           .should("have.value", "");
       });
 
-      it("dropdown: Formats - should have default value as ", () => {
+      it("Books >> dropdown: Formats - should have default value as ", () => {
         cy.get(filterPages.bookDropdownFormats).select(0).should("have.value", "");
       });
     });
@@ -49,7 +49,7 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Filter menu should be visible by default", () => {
+      it("eBooks >> Filter menu should be visible by default", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
@@ -61,19 +61,25 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Filter menu should be visible by default", () => {
+      it("Audio >> Filter menu should be visible by default", () => {
         checkIfElementIsVisible_Contains(filterPages.divFilterMenuText);
       });
     });
 
     describe("dropdown: Categories", () => {
-      it("dropdown: Categories - should have default value as ", () => {
+      it("Audio >> dropdown: Categories - should have default value as ", () => {
         cy.get(filterPages.audioDropdownCategories)
           .select(0)
           .should("have.value", "");
       });
 
-      it("dropdown: Formats - should have default value as ", () => {
+      it("Audio >> dropdown: Categories - should have default value as ", () => {
+        cy.get(filterPages.audioDropdownSpeakers)
+          .select(0)
+          .should("have.value", "");
+      });
+
+      it("Audio >> dropdown: Formats - should have default value as ", () => {
         cy.get(filterPages.audioDropdownFormats).select(0).should("have.value", "");
       });
     });
@@ -85,7 +91,7 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Filter menu should be visible by default", () => {
+      it("Photos >> Filter menu should be visible by default", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
@@ -97,7 +103,7 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Filter menu should be visible by default", () => {
+      it("Devotional >> Filter menu should be visible by default", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
@@ -109,7 +115,7 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Filter menu should be visible by default", () => {
+      it("Video >> Filter menu should be visible by default", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });

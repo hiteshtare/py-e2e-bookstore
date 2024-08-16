@@ -16,6 +16,7 @@ export class FilterPages {
   //Dropdown
 
   audioDropdownCategories = ".elementor-element-9d3a260 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
+  audioDropdownSpeakers = ".elementor-element-7cbb562 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
   audioDropdownFormats = ".elementor-element-ed3bf31 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
 
   //Checkboxlist
