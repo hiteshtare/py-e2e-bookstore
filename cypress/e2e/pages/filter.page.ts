@@ -7,6 +7,7 @@ import { captureSreenshot } from "../util/common.util";
 export class FilterPages {
 
   divFilterMenuText = "Filter by:";
+  divCarousal = ".swiper-wrapper.elementor-slides > div";
   
   //Dropdown
   bookDropdownCategories = ".elementor-element-339adf4 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
@@ -24,6 +25,8 @@ export class FilterPages {
   checkboxlistSpeaker = '.jet-smart-filters-color-image > .jet-filter-items-dropdown > .jet-filter-items-dropdown__label';
   checkboxlistLanguage = '.elementor-element-b5b9f6e > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-checkboxes > .jet-filter-items-dropdown > .jet-filter-items-dropdown__label';
   //Checkboxlist
+
+  carousalItem = '.swiper-slide-inner';
 
   selectDropdownOptionByValue(value: string) {
     cy.get(this.bookDropdownCategories).select(value);

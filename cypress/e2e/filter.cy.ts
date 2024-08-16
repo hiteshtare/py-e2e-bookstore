@@ -2,6 +2,7 @@
 import {
   checkIfElementIsVisible_Contains,
   checkIfElementNotExist_Contains,
+  checkStatus200ForLink,
 } from "./util/common.util";
 
 import { FilterPages } from "./pages/filter.page";
@@ -12,6 +13,21 @@ describe("Filter menu", () => {
   describe("Product Category: Books", () => {
     beforeEach(() => {
       cy.visit("/product-category/books");
+    });
+
+    describe("carousal: Books", () => {
+      it("All carousal items should give 200 OK status", () => {
+        cy.get(".swiper-wrapper.elementor-slides > div").each(
+          ($event, index) => {
+            cy.wrap($event).within(async () => {
+              //Capture screenshot
+              cy.get(filterPages.carousalItem).screenshot({ capture: "viewport" });
+              
+              checkStatus200ForLink(filterPages.carousalItem);
+            });
+          }
+        );
+      });
     });
 
     describe("Overall working", () => {
@@ -28,7 +44,9 @@ describe("Filter menu", () => {
       });
 
       it("Books >> dropdown: Authors - should have default value as ", () => {
-        cy.get(filterPages.bookDropdownAuthors).select(0).should("have.value", "");
+        cy.get(filterPages.bookDropdownAuthors)
+          .select(0)
+          .should("have.value", "");
       });
 
       it("Books >> dropdown: Languages - should have default value as ", () => {
@@ -38,7 +56,9 @@ describe("Filter menu", () => {
       });
 
       it("Books >> dropdown: Formats - should have default value as ", () => {
-        cy.get(filterPages.bookDropdownFormats).select(0).should("have.value", "");
+        cy.get(filterPages.bookDropdownFormats)
+          .select(0)
+          .should("have.value", "");
       });
     });
   });
@@ -49,7 +69,11 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("eBooks >> Filter menu should be visible by default", () => {
+      it("eBooks >> Carousal menu should not Exist", () => {
+        checkIfElementNotExist_Contains(filterPages.divCarousal);
+      });
+
+      it("eBooks >> Filter menu should not Exist", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
@@ -58,6 +82,21 @@ describe("Filter menu", () => {
   describe("Product Category: Audio", () => {
     beforeEach(() => {
       cy.visit("/product-category/audio");
+    });
+
+    describe("carousal: Audio", () => {
+      it("All carousal items should give 200 OK status", () => {
+        cy.get(".swiper-wrapper.elementor-slides > div").each(
+          ($event, index) => {
+            cy.wrap($event).within(async () => {
+              //Capture screenshot
+              cy.get(filterPages.carousalItem).screenshot({ capture: "viewport" });
+              
+              checkStatus200ForLink(filterPages.carousalItem);
+            });
+          }
+        );
+      });
     });
 
     describe("Overall working", () => {
@@ -80,7 +119,9 @@ describe("Filter menu", () => {
       });
 
       it("Audio >> dropdown: Formats - should have default value as ", () => {
-        cy.get(filterPages.audioDropdownFormats).select(0).should("have.value", "");
+        cy.get(filterPages.audioDropdownFormats)
+          .select(0)
+          .should("have.value", "");
       });
     });
   });
@@ -91,7 +132,11 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Photos >> Filter menu should be visible by default", () => {
+      it("Photos >> Carousal menu should not Exist", () => {
+        checkIfElementNotExist_Contains(filterPages.divCarousal);
+      });
+
+      it("Photos >> Filter menu should not Exist", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
@@ -103,7 +148,11 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Devotional >> Filter menu should be visible by default", () => {
+      it("Devotional >> Carousal menu should not Exist", () => {
+        checkIfElementNotExist_Contains(filterPages.divCarousal);
+      });
+
+      it("Devotional >> Filter menu should not Exist", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
@@ -115,7 +164,11 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("Video >> Filter menu should be visible by default", () => {
+      it("Video >> Carousal menu should not Exist", () => {
+        checkIfElementNotExist_Contains(filterPages.divCarousal);
+      });
+
+      it("Video >> Filter menu should not Exist", () => {
         checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
