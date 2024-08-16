@@ -16,7 +16,7 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("All carousal items should give 200 OK status", () => {
+      it("Books >> All carousal items should give 200 OK status", () => {
         cy.get(".swiper-wrapper.elementor-slides > div").each(
           ($event, index) => {
             cy.wrap($event).within(async () => {
@@ -83,7 +83,7 @@ describe("Filter menu", () => {
     });
 
     describe("Overall working", () => {
-      it("All carousal items should give 200 OK status", () => {
+      it("Audio >> All carousal items should give 200 OK status", () => {
         cy.get(".swiper-wrapper.elementor-slides > div").each(
           ($event, index) => {
             cy.wrap($event).within(async () => {
