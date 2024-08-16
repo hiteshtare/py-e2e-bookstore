@@ -1,6 +1,7 @@
 // Import common util
 import {
   checkIfElementIsVisible_Contains,
+  checkIfElementNotExist_Contains,
 } from "./util/common.util";
 
 import { FilterPages } from "./pages/filter.page";
@@ -42,6 +43,18 @@ describe("Filter menu", () => {
     });
   });
 
+  describe("Product Category: eBooks", () => {
+    beforeEach(() => {
+      cy.visit("/ebooks");
+    });
+
+    describe("Overall working", () => {
+      it("Filter menu should be visible by default", () => {
+        checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
+      });
+    });
+  });
+
   describe("Product Category: Audio", () => {
     beforeEach(() => {
       cy.visit("/product-category/audio");
@@ -62,6 +75,42 @@ describe("Filter menu", () => {
 
       it("dropdown: Formats - should have default value as ", () => {
         cy.get(filterPages.audioDropdownFormats).select(0).should("have.value", "");
+      });
+    });
+  });
+
+  describe("Product Category: Photos", () => {
+    beforeEach(() => {
+      cy.visit("/product-category/photos");
+    });
+
+    describe("Overall working", () => {
+      it("Filter menu should be visible by default", () => {
+        checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
+      });
+    });
+  });
+
+  describe("Product Category: Devotional", () => {
+    beforeEach(() => {
+      cy.visit("/product-category/devotional-articles");
+    });
+
+    describe("Overall working", () => {
+      it("Filter menu should be visible by default", () => {
+        checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
+      });
+    });
+  });
+
+  describe("Product Category: Video", () => {
+    beforeEach(() => {
+      cy.visit("/product-category/video");
+    });
+
+    describe("Overall working", () => {
+      it("Filter menu should be visible by default", () => {
+        checkIfElementNotExist_Contains(filterPages.divFilterMenuText);
       });
     });
   });

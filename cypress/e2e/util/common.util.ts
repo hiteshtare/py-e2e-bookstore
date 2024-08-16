@@ -30,8 +30,9 @@ export function checkIfElementIsVisible_Contains(selector: string) {
 
   captureSreenshot(500);
 }
-export function checkIfElementNotVisible_Contains(selector: string) {
-  cy.contains(selector).should("not.be.visible");
+
+export function checkIfElementNotExist_Contains(selector: string) {
+  cy.contains(selector).should("not.exist");
 
   captureSreenshot(500);
 }
