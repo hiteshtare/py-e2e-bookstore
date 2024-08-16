@@ -25,6 +25,17 @@ export function checkIfElementIsVisible(selector: string) {
   captureSreenshot(500);
 }
 
+export function checkIfElementIsVisible_Contains(selector: string) {
+  cy.contains(selector).should("be.visible");
+
+  captureSreenshot(500);
+}
+export function checkIfElementNotVisible_Contains(selector: string) {
+  cy.contains(selector).should("not.be.visible");
+
+  captureSreenshot(500);
+}
+
 export function checkIfElementExist(selector: string, takeScreenshot = false) {
   if (takeScreenshot) {
     captureSreenshot(500);

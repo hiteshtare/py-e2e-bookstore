@@ -5,13 +5,18 @@ import { TEST_CONFIG } from "../config";
 import { captureSreenshot } from "../util/common.util";
 
 export class FilterPages {
- 
-  //On Book
-  divFilterMenu = ".elementor-element-7eafdec";
 
+  divFilterMenuText = "Filter by:";
+  
   //Dropdown
-  dropdownCategories = ".elementor-element-339adf4 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
+  bookDropdownCategories = ".elementor-element-339adf4 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
+  bookDropdownAuthors = " .elementor-element-339adf4 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
+  bookDropdownLanguages = ".elementor-element-a5e8b3a > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
+  bookDropdownFormats = ".elementor-element-3ead66f > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
   //Dropdown
+
+  audioDropdownCategories = ".elementor-element-9d3a260 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
+  audioDropdownFormats = ".elementor-element-ed3bf31 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-select > .jet-select > .jet-select__control";
 
   //Checkboxlist
   checkboxlistCategory = '.elementor-element-f4e1846 > .elementor-widget-wrap > .elementor-element > .elementor-widget-container > .jet-smart-filters-checkboxes > .jet-filter-items-dropdown > .jet-filter-items-dropdown__label';
@@ -20,7 +25,7 @@ export class FilterPages {
   //Checkboxlist
 
   selectDropdownOptionByValue(value: string) {
-    cy.get(this.dropdownCategories).select(value);
+    cy.get(this.bookDropdownCategories).select(value);
 
     captureSreenshot(3000);
   }
