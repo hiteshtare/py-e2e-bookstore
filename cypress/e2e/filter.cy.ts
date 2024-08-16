@@ -20,7 +20,7 @@ describe("Filter menu", () => {
       });
     });
 
-    describe("dropdown: Categories", () => {
+    describe("dropdown: Books", () => {
       it("Books >>  dropdown: Categories - should have default value as ", () => {
         cy.get(filterPages.bookDropdownCategories)
           .select(0)
@@ -66,7 +66,7 @@ describe("Filter menu", () => {
       });
     });
 
-    describe("dropdown: Categories", () => {
+    describe("dropdown: Audio", () => {
       it("Audio >> dropdown: Categories - should have default value as ", () => {
         cy.get(filterPages.audioDropdownCategories)
           .select(0)
