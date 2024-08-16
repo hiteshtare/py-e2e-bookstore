@@ -15,7 +15,7 @@ describe("Filter menu", () => {
       cy.visit("/product-category/books");
     });
 
-    describe("carousal: Books", () => {
+    describe("Overall working", () => {
       it("All carousal items should give 200 OK status", () => {
         cy.get(".swiper-wrapper.elementor-slides > div").each(
           ($event, index) => {
@@ -28,9 +28,7 @@ describe("Filter menu", () => {
           }
         );
       });
-    });
 
-    describe("Overall working", () => {
       it("Books >> Filter menu should be visible by default", () => {
         checkIfElementIsVisible_Contains(filterPages.divFilterMenuText);
       });
@@ -84,7 +82,7 @@ describe("Filter menu", () => {
       cy.visit("/product-category/audio");
     });
 
-    describe("carousal: Audio", () => {
+    describe("Overall working", () => {
       it("All carousal items should give 200 OK status", () => {
         cy.get(".swiper-wrapper.elementor-slides > div").each(
           ($event, index) => {
@@ -97,9 +95,7 @@ describe("Filter menu", () => {
           }
         );
       });
-    });
 
-    describe("Overall working", () => {
       it("Audio >> Filter menu should be visible by default", () => {
         checkIfElementIsVisible_Contains(filterPages.divFilterMenuText);
       });
