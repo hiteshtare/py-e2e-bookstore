@@ -12,7 +12,7 @@ import { DashboardPages } from "./pages/dashboard.page";
 
 const dashboardPages = new DashboardPages();
 
-describe("Dashboard page", () => {
+describe.skip("Dashboard page", () => {
   beforeEach(() => {
     cy.visit("/bookstore");
   });

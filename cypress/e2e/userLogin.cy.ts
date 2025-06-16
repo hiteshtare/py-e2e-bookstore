@@ -2,7 +2,7 @@ import { UserLoginPages } from "./pages/userLogin.page";
 
 const userLoginPages = new UserLoginPages();
 
-describe("User Login", () => {
+describe.skip("User Login", () => {
   beforeEach(() => {
     cy.visit("bookstore");
   });

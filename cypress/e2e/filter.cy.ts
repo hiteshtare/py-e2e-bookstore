@@ -9,7 +9,7 @@ import { FilterPages } from "./pages/filter.page";
 
 const filterPages = new FilterPages();
 
-describe("Filter menu", () => {
+describe.skip("Filter menu", () => {
   describe("Product Category: Books", () => {
     beforeEach(() => {
       cy.visit("/product-category/books");

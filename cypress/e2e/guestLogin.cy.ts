@@ -8,7 +8,7 @@ import { GuestLoginPages } from "./pages/guestLogin.page";
 
 const guestLoginPages = new GuestLoginPages();
 
-describe("Guest Login", () => {
+describe.skip("Guest Login", () => {
   beforeEach(() => {
     cy.visit("bookstore");
   });

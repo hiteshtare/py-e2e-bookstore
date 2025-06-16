@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://test.yssofindia.org/",
+  "baseUrl": "https://staging2.yssofindia.org/",
   "env": {
     "greeting": "Alright PY! lets start Cypress on Test site",
     "LOGIN_EMAIL": "hiteshtare@gmail.com",
